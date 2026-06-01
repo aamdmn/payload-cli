@@ -31,7 +31,7 @@
     "check:fix": "biome check --write ./src",
     "format": "biome format --write ./src",
     "payload-cli": "tsx ./src/cli.ts",
-    "prepublishOnly": "pnpm check && pnpm build"
+    "prepublishOnly": "node scripts/ensure-pnpm.mjs && pnpm check && pnpm build"
   },
   "dependencies": {
     "tsx": "^4.19.2"
