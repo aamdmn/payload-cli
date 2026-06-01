@@ -16,7 +16,7 @@ import {
 import { getTypeInterface } from '../utils/types-extractor.js'
 
 /**
- * payload-agent describe <collection|global> - Show schema details.
+ * payload-cli describe <collection|global> - Show schema details.
  *
  * Default: outputs the TypeScript interface from payload-types.ts.
  * --fields: outputs the detailed field breakdown (constraints, localized flags, etc.)
@@ -29,9 +29,9 @@ export async function describeCommand(
 ): Promise<void> {
   const slug = args[0]
   if (!slug) {
-    console.error('Usage: payload-agent describe <collection-or-global>')
+    console.error('Usage: payload-cli describe <collection-or-global>')
     console.error(
-      "Hint: Run 'payload-agent collections' or 'payload-agent globals' to see available slugs.",
+      "Hint: Run 'payload-cli collections' or 'payload-cli globals' to see available slugs.",
     )
     process.exit(1)
   }
@@ -281,7 +281,7 @@ function describeTypes(
   if (result.referencedTypes.length > 0) {
     lines.push('')
     lines.push(`Referenced types: ${result.referencedTypes.join(', ')}`)
-    lines.push("Hint: Run 'payload-agent describe <slug>' for any referenced collection/global.")
+    lines.push("Hint: Run 'payload-cli describe <slug>' for any referenced collection/global.")
   }
 
   console.log(lines.join('\n'))

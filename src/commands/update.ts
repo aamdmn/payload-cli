@@ -119,7 +119,7 @@ async function processFileFlags(
 }
 
 /**
- * payload-agent update <collection> <id> --data '{...}' [--locale <code>] [--file 'field=./path'] [--dry-run]
+ * payload-cli update <collection> <id> --data '{...}' [--locale <code>] [--file 'field=./path'] [--dry-run]
  */
 export async function updateCommand(
   payload: Payload,
@@ -132,7 +132,7 @@ export async function updateCommand(
 
   if (!(slug && id)) {
     console.error(
-      "Usage: payload-agent update <collection> <id> --data '{...}' [--locale <code>] [--file 'field=./path'] [--dry-run]",
+      "Usage: payload-cli update <collection> <id> --data '{...}' [--locale <code>] [--file 'field=./path'] [--dry-run]",
     )
     process.exit(1)
   }
@@ -150,8 +150,8 @@ export async function updateCommand(
   // --data is required unless only --file flags are provided
   if (!flags.data && fileFlags.length === 0) {
     console.error('Error: --data flag is required (or use --file to attach files).')
-    console.error(`Usage: payload-agent update ${slug} ${id} --data '{"title":"Updated Title"}'`)
-    console.error(`Hint: Run 'payload-agent describe ${slug}' to see available fields.`)
+    console.error(`Usage: payload-cli update ${slug} ${id} --data '{"title":"Updated Title"}'`)
+    console.error(`Hint: Run 'payload-cli describe ${slug}' to see available fields.`)
     process.exit(1)
   }
 
@@ -223,7 +223,7 @@ export async function updateCommand(
 }
 
 /**
- * payload-agent update-many <collection> --where '{...}' --data '{...}' [--locale <code>] [--dry-run]
+ * payload-cli update-many <collection> --where '{...}' --data '{...}' [--locale <code>] [--dry-run]
  */
 export async function updateManyCommand(
   payload: Payload,
@@ -234,7 +234,7 @@ export async function updateManyCommand(
   const slug = pos[0]
   if (!slug) {
     console.error(
-      "Usage: payload-agent update-many <collection> --where '{...}' --data '{...}' [--locale <code>] [--dry-run]",
+      "Usage: payload-cli update-many <collection> --where '{...}' --data '{...}' [--locale <code>] [--dry-run]",
     )
     process.exit(1)
   }

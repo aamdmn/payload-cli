@@ -71,7 +71,7 @@ function hasAnyLocalizedField(fieldInfos: FieldInfo[]): boolean {
 }
 
 /**
- * payload-agent copy-locale <collection> [<id>] --from <locale> --to <locale> [--where '{...}'] [--dry-run]
+ * payload-cli copy-locale <collection> [<id>] --from <locale> --to <locale> [--where '{...}'] [--dry-run]
  *
  * Copies all localized field values from one locale to another.
  * If <id> is provided, copies for a single document.
@@ -89,7 +89,7 @@ export async function copyLocaleCommand(
 
   if (!slug) {
     console.error(
-      "Usage: payload-agent copy-locale <collection> [<id>] --from <locale> --to <locale> [--where '{...}'] [--dry-run]",
+      "Usage: payload-cli copy-locale <collection> [<id>] --from <locale> --to <locale> [--where '{...}'] [--dry-run]",
     )
     process.exit(1)
   }
@@ -104,7 +104,7 @@ export async function copyLocaleCommand(
 
   if (!(flags.from && flags.to)) {
     console.error('Error: --from and --to flags are required.')
-    console.error('Example: payload-agent copy-locale products --from sk --to cz')
+    console.error('Example: payload-cli copy-locale products --from sk --to cz')
     process.exit(1)
   }
 
@@ -243,7 +243,7 @@ export async function copyLocaleCommand(
 }
 
 /**
- * payload-agent copy-locale-global <slug> --from <locale> --to <locale> [--dry-run]
+ * payload-cli copy-locale-global <slug> --from <locale> --to <locale> [--dry-run]
  *
  * Copies all localized field values from one locale to another for a global.
  */
@@ -257,7 +257,7 @@ export async function copyLocaleGlobalCommand(
 
   if (!slug) {
     console.error(
-      'Usage: payload-agent copy-locale-global <slug> --from <locale> --to <locale> [--dry-run]',
+      'Usage: payload-cli copy-locale-global <slug> --from <locale> --to <locale> [--dry-run]',
     )
     process.exit(1)
   }
@@ -272,7 +272,7 @@ export async function copyLocaleGlobalCommand(
 
   if (!(flags.from && flags.to)) {
     console.error('Error: --from and --to flags are required.')
-    console.error('Example: payload-agent copy-locale-global header --from sk --to cz')
+    console.error('Example: payload-cli copy-locale-global header --from sk --to cz')
     process.exit(1)
   }
 

@@ -8,7 +8,7 @@ import { parseFlags, positionalArgs } from '../utils/parse-flags.js'
 import { extractFieldsInfo, getGlobalSlugs } from '../utils/schema-introspection.js'
 
 /**
- * payload-agent globals - List all globals.
+ * payload-cli globals - List all globals.
  */
 export async function globalsCommand(
   payload: Payload,
@@ -45,7 +45,7 @@ export async function globalsCommand(
 }
 
 /**
- * payload-agent get-global <slug> [--select '...'] [--depth N] [--locale <code>] [--fallback-locale <code>]
+ * payload-cli get-global <slug> [--select '...'] [--depth N] [--locale <code>] [--fallback-locale <code>]
  */
 export async function getGlobalCommand(
   payload: Payload,
@@ -56,7 +56,7 @@ export async function getGlobalCommand(
   const slug = pos[0]
   if (!slug) {
     console.error(
-      "Usage: payload-agent get-global <slug> [--select '{...}'] [--depth N] [--locale <code>]",
+      "Usage: payload-cli get-global <slug> [--select '{...}'] [--depth N] [--locale <code>]",
     )
     process.exit(1)
   }
@@ -95,7 +95,7 @@ export async function getGlobalCommand(
 }
 
 /**
- * payload-agent update-global <slug> --data '{...}' [--locale <code>] [--dry-run]
+ * payload-cli update-global <slug> --data '{...}' [--locale <code>] [--dry-run]
  */
 export async function updateGlobalCommand(
   payload: Payload,
@@ -106,7 +106,7 @@ export async function updateGlobalCommand(
   const slug = pos[0]
   if (!slug) {
     console.error(
-      "Usage: payload-agent update-global <slug> --data '{...}' [--locale <code>] [--dry-run]",
+      "Usage: payload-cli update-global <slug> --data '{...}' [--locale <code>] [--dry-run]",
     )
     process.exit(1)
   }
@@ -121,7 +121,7 @@ export async function updateGlobalCommand(
 
   if (!flags.data) {
     console.error('Error: --data flag is required.')
-    console.error(`Hint: Run 'payload-agent describe ${slug}' to see available fields.`)
+    console.error(`Hint: Run 'payload-cli describe ${slug}' to see available fields.`)
     process.exit(1)
   }
 

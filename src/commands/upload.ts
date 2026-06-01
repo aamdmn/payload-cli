@@ -7,15 +7,15 @@ import { parseFlags, positionalArgs } from '../utils/parse-flags.js'
 import { getCollectionSlugs, isUploadCollection } from '../utils/schema-introspection.js'
 
 /**
- * payload-agent upload <collection> <file|dir|glob...> [--data '{...}'] [--dry-run]
+ * payload-cli upload <collection> <file|dir|glob...> [--data '{...}'] [--dry-run]
  *
  * Upload one or more files to an upload-enabled collection.
  *
  * Examples:
- *   payload-agent upload media ./hero.jpg
- *   payload-agent upload media ./hero.jpg --data '{"alt":"Hero image"}'
- *   payload-agent upload media ./photos/
- *   payload-agent upload media ./photos/*.jpg
+ *   payload-cli upload media ./hero.jpg
+ *   payload-cli upload media ./hero.jpg --data '{"alt":"Hero image"}'
+ *   payload-cli upload media ./photos/
+ *   payload-cli upload media ./photos/*.jpg
  */
 export async function uploadCommand(
   payload: Payload,
@@ -26,14 +26,12 @@ export async function uploadCommand(
   const slug = pos[0]
 
   if (!slug) {
-    console.error(
-      'Usage: payload-agent upload <collection> <file|dir> [--data \'{"alt":"..."}\']\n',
-    )
+    console.error('Usage: payload-cli upload <collection> <file|dir> [--data \'{"alt":"..."}\']\n')
     console.error('Examples:')
-    console.error('  payload-agent upload media ./hero.jpg')
-    console.error('  payload-agent upload media ./hero.jpg --data \'{"alt":"Hero image"}\'')
-    console.error('  payload-agent upload media ./photos/')
-    console.error('  payload-agent upload media ./img1.jpg ./img2.png')
+    console.error('  payload-cli upload media ./hero.jpg')
+    console.error('  payload-cli upload media ./hero.jpg --data \'{"alt":"Hero image"}\'')
+    console.error('  payload-cli upload media ./photos/')
+    console.error('  payload-cli upload media ./img1.jpg ./img2.png')
     process.exit(1)
   }
 
@@ -60,7 +58,7 @@ export async function uploadCommand(
   const filePaths = pos.slice(1)
   if (filePaths.length === 0) {
     console.error('Error: No file path(s) provided.')
-    console.error(`Usage: payload-agent upload ${slug} <file|dir> [--data '{...}']`)
+    console.error(`Usage: payload-cli upload ${slug} <file|dir> [--data '{...}']`)
     process.exit(1)
   }
 

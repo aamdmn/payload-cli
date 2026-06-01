@@ -119,7 +119,7 @@ async function processFileFlags(
 }
 
 /**
- * payload-agent create <collection> --data '{...}' [--locale <code>] [--file 'field=./path'] [--dry-run]
+ * payload-cli create <collection> --data '{...}' [--locale <code>] [--file 'field=./path'] [--dry-run]
  */
 export async function createCommand(
   payload: Payload,
@@ -130,7 +130,7 @@ export async function createCommand(
   const slug = pos[0]
   if (!slug) {
     console.error(
-      "Usage: payload-agent create <collection> --data '{...}' [--locale <code>] [--file 'field=./path'] [--dry-run]",
+      "Usage: payload-cli create <collection> --data '{...}' [--locale <code>] [--file 'field=./path'] [--dry-run]",
     )
     process.exit(1)
   }
@@ -150,8 +150,8 @@ export async function createCommand(
 
   if (!(flags.data || isUpload)) {
     console.error('Error: --data flag is required.')
-    console.error(`Usage: payload-agent create ${slug} --data '{"title":"My Post"}'`)
-    console.error(`Hint: Run 'payload-agent describe ${slug}' to see available fields.`)
+    console.error(`Usage: payload-cli create ${slug} --data '{"title":"My Post"}'`)
+    console.error(`Hint: Run 'payload-cli describe ${slug}' to see available fields.`)
     process.exit(1)
   }
 

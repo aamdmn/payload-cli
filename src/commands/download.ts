@@ -9,15 +9,15 @@ import { parseFlags, positionalArgs } from '../utils/parse-flags.js'
 import { getCollectionSlugs, isUploadCollection } from '../utils/schema-introspection.js'
 
 /**
- * payload-agent download <collection> <id> [--out ./path/]
- * payload-agent download <collection> --where '{...}' [--out ./path/]
+ * payload-cli download <collection> <id> [--out ./path/]
+ * payload-cli download <collection> --where '{...}' [--out ./path/]
  *
  * Download media files from an upload-enabled collection.
  *
  * Examples:
- *   payload-agent download media 6789abcdef
- *   payload-agent download media 6789abcdef --out ./downloads/
- *   payload-agent download media --where '{"alt":{"contains":"hero"}}'
+ *   payload-cli download media 6789abcdef
+ *   payload-cli download media 6789abcdef --out ./downloads/
+ *   payload-cli download media --where '{"alt":{"contains":"hero"}}'
  */
 export async function downloadCommand(
   payload: Payload,
@@ -29,11 +29,11 @@ export async function downloadCommand(
   const id = pos[1]
 
   if (!slug) {
-    console.error('Usage: payload-agent download <collection> <id> [--out ./path/]\n')
+    console.error('Usage: payload-cli download <collection> <id> [--out ./path/]\n')
     console.error('Examples:')
-    console.error('  payload-agent download media 6789abcdef')
-    console.error('  payload-agent download media 6789abcdef --out ./downloads/')
-    console.error('  payload-agent download media --where \'{"alt":{"contains":"hero"}}\'')
+    console.error('  payload-cli download media 6789abcdef')
+    console.error('  payload-cli download media 6789abcdef --out ./downloads/')
+    console.error('  payload-cli download media --where \'{"alt":{"contains":"hero"}}\'')
     process.exit(1)
   }
 
@@ -121,9 +121,9 @@ export async function downloadCommand(
     }
   } else {
     console.error('Error: Provide a document ID or use --where to query documents.')
-    console.error(`Usage: payload-agent download ${slug} <id> [--out ./path/]`)
+    console.error(`Usage: payload-cli download ${slug} <id> [--out ./path/]`)
     console.error(
-      `       payload-agent download ${slug} --where '{"alt":{"contains":"hero"}}' [--out ./path/]`,
+      `       payload-cli download ${slug} --where '{"alt":{"contains":"hero"}}' [--out ./path/]`,
     )
     process.exit(1)
   }
