@@ -1,7 +1,7 @@
 <div align='center'>
     <br/>
     <br/>
-    <h3>payload-agent</h3>
+    <h3>payload-cli</h3>
     <p>PayloadCMS automation CLI for AI agents</p>
     <br/>
     <br/>
@@ -15,17 +15,17 @@ Built for AI coding agents (Opencode, Claude Code, etc.) but works great for hum
 
 ```bash
 cd your-payload-project
-npx payload-agent collections                  # discover
-npx payload-agent describe posts               # understand schema
-npx payload-agent describe posts --examples    # see JSON field structures
-npx payload-agent find posts --limit 5         # read
-npx payload-agent create posts --data '{"title":"Hello"}' # write
+npx payload-cli collections                  # discover
+npx payload-cli describe posts               # understand schema
+npx payload-cli describe posts --examples    # see JSON field structures
+npx payload-cli find posts --limit 5         # read
+npx payload-cli create posts --data '{"title":"Hello"}' # write
 ```
 
 Or point at a config directly:
 
 ```bash
-npx payload-agent find posts --config ./src/payload.config.ts
+npx payload-cli find posts --config ./src/payload.config.ts
 ```
 
 ## Commands
@@ -54,16 +54,16 @@ Upload, download, and attach files to documents:
 
 ```bash
 # Upload
-payload-agent upload media ./hero.jpg --data '{"alt":"Hero image"}'
-payload-agent upload media ./photos/             # bulk upload directory
+payload-cli upload media ./hero.jpg --data '{"alt":"Hero image"}'
+payload-cli upload media ./photos/             # bulk upload directory
 
 # Download
-payload-agent download media 6789abc --out ./downloads/
-payload-agent download media --where '{"alt":{"contains":"hero"}}'
+payload-cli download media 6789abc --out ./downloads/
+payload-cli download media --where '{"alt":{"contains":"hero"}}'
 
 # Auto-upload and attach to a document field
-payload-agent create pages --data '{"title":"About"}' --file 'heroImage=./hero.jpg'
-payload-agent update pages <id> --data '{}' --file 'thumbnail=./thumb.png'
+payload-cli create pages --data '{"title":"About"}' --file 'heroImage=./hero.jpg'
+payload-cli update pages <id> --data '{}' --file 'thumbnail=./thumb.png'
 ```
 
 The `--file` flag auto-detects the target upload collection from the field schema, uploads the file, and injects the resulting ID.
@@ -86,7 +86,7 @@ The `--file` flag auto-detects the target upload collection from the field schem
 ## How It Works
 
 ```
-payload-agent find posts --limit 5
+payload-cli find posts --limit 5
        |
        v
   Import your payload.config.ts
@@ -103,12 +103,12 @@ The `skills/` directory contains a [Claude Code skill](https://claude.ai/docs/sk
 
 ```bash
 # Agents learn to:
-# 1. payload-agent collections              -> what exists?
-# 2. payload-agent describe posts           -> what fields?
-# 3. payload-agent describe posts --examples -> what shape are json fields?
-# 4. payload-agent find posts               -> what data?
-# 5. payload-agent create posts --data      -> write
-# 6. payload-agent find-by-id posts         -> verify
+# 1. payload-cli collections              -> what exists?
+# 2. payload-cli describe posts           -> what fields?
+# 3. payload-cli describe posts --examples -> what shape are json fields?
+# 4. payload-cli find posts               -> what data?
+# 5. payload-cli create posts --data      -> write
+# 6. payload-cli find-by-id posts         -> verify
 ```
 
 ## Requirements

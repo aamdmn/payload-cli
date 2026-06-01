@@ -100,7 +100,7 @@ export function formatValidationError(
   if (collection) {
     lines.push('')
     lines.push(
-      `Hint: Run 'payload-agent describe ${collection}' to see all available fields and their types.`,
+      `Hint: Run 'payload-cli describe ${collection}' to see all available fields and their types.`,
     )
   }
 
@@ -128,7 +128,7 @@ export function formatCollectionNotFoundError(
     lines.push(`  - ${col}`)
   }
   lines.push('')
-  lines.push("Hint: Run 'payload-agent collections' to see all collections.")
+  lines.push("Hint: Run 'payload-cli collections' to see all collections.")
 
   return lines.join('\n')
 }
@@ -155,7 +155,7 @@ export function formatGlobalNotFoundError(slug: string, availableGlobals: string
     lines.push('No globals are configured in this Payload instance.')
   }
   lines.push('')
-  lines.push("Hint: Run 'payload-agent globals' to see all globals.")
+  lines.push("Hint: Run 'payload-cli globals' to see all globals.")
 
   return lines.join('\n')
 }

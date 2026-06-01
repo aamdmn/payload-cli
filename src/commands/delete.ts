@@ -7,7 +7,7 @@ import { parseFlags, positionalArgs } from '../utils/parse-flags.js'
 import { getCollectionSlugs } from '../utils/schema-introspection.js'
 
 /**
- * payload-agent delete <collection> <id> [--confirm] [--dry-run] [--locale <code>]
+ * payload-cli delete <collection> <id> [--confirm] [--dry-run] [--locale <code>]
  *
  * Without --confirm: shows what would be deleted but does NOT delete.
  * With --confirm: executes the delete.
@@ -23,7 +23,7 @@ export async function deleteCommand(
   const id = pos[1]
 
   if (!(slug && id)) {
-    console.error('Usage: payload-agent delete <collection> <id> [--confirm]')
+    console.error('Usage: payload-cli delete <collection> <id> [--confirm]')
     process.exit(1)
   }
 
@@ -72,7 +72,7 @@ export async function deleteCommand(
 }
 
 /**
- * payload-agent delete-many <collection> --where '{...}' [--confirm] [--dry-run] [--locale <code>]
+ * payload-cli delete-many <collection> --where '{...}' [--confirm] [--dry-run] [--locale <code>]
  *
  * Without --confirm: shows what would be deleted but does NOT delete.
  * With --confirm: executes the bulk delete.
@@ -86,7 +86,7 @@ export async function deleteManyCommand(
   const pos = positionalArgs(args)
   const slug = pos[0]
   if (!slug) {
-    console.error("Usage: payload-agent delete-many <collection> --where '{...}' [--confirm]")
+    console.error("Usage: payload-cli delete-many <collection> --where '{...}' [--confirm]")
     process.exit(1)
   }
 

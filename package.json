@@ -1,11 +1,11 @@
 {
-  "name": "payload-agent",
-  "version": "0.5.0",
+  "name": "payload-cli",
+  "version": "0.6.0",
   "description": "PayloadCMS CLI for AI agents and humans. Simple, direct access to your CMS data.",
   "license": "MIT",
   "type": "module",
   "bin": {
-    "payload-agent": "./bin/payload-agent.js"
+    "payload-cli": "./bin/payload-cli.js"
   },
   "exports": {
     ".": {
@@ -30,7 +30,7 @@
     "check": "biome check ./src",
     "check:fix": "biome check --write ./src",
     "format": "biome format --write ./src",
-    "payload-agent": "tsx ./src/cli.ts",
+    "payload-cli": "tsx ./src/cli.ts",
     "prepublishOnly": "pnpm check && pnpm build"
   },
   "dependencies": {
@@ -54,7 +54,7 @@
   },
   "publishConfig": {
     "bin": {
-      "payload-agent": "./bin/payload-agent.js"
+      "payload-cli": "./bin/payload-cli.js"
     },
     "exports": {
       ".": {
@@ -68,10 +68,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/aamdmn/payload-agent.git"
+    "url": "https://github.com/aamdmn/payload-cli.git"
   },
-  "homepage": "https://github.com/aamdmn/payload-agent",
-  "bugs": "https://github.com/aamdmn/payload-agent/issues",
+  "homepage": "https://github.com/aamdmn/payload-cli",
+  "bugs": "https://github.com/aamdmn/payload-cli/issues",
   "keywords": [
     "payloadcms",
     "payload",

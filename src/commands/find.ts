@@ -7,7 +7,7 @@ import { parseFlags, positionalArgs } from '../utils/parse-flags.js'
 import { getCollectionSlugs } from '../utils/schema-introspection.js'
 
 /**
- * payload-agent find <collection> [--where '...'] [--limit N] [--page N] [--sort field] [--select '...'] [--depth N] [--locale <code>] [--fallback-locale <code>]
+ * payload-cli find <collection> [--where '...'] [--limit N] [--page N] [--sort field] [--select '...'] [--depth N] [--locale <code>] [--fallback-locale <code>]
  */
 export async function findCommand(
   payload: Payload,
@@ -18,7 +18,7 @@ export async function findCommand(
   const slug = pos[0]
   if (!slug) {
     console.error(
-      "Usage: payload-agent find <collection> [--where '{...}'] [--limit N] [--page N] [--sort field] [--select '{...}'] [--depth N] [--locale <code>]",
+      "Usage: payload-cli find <collection> [--where '{...}'] [--limit N] [--page N] [--sort field] [--select '{...}'] [--depth N] [--locale <code>]",
     )
     process.exit(1)
   }
@@ -94,7 +94,7 @@ export async function findCommand(
 }
 
 /**
- * payload-agent find-by-id <collection> <id> [--select '...'] [--depth N] [--locale <code>] [--fallback-locale <code>]
+ * payload-cli find-by-id <collection> <id> [--select '...'] [--depth N] [--locale <code>] [--fallback-locale <code>]
  */
 export async function findByIdCommand(
   payload: Payload,
@@ -107,7 +107,7 @@ export async function findByIdCommand(
 
   if (!(slug && id)) {
     console.error(
-      "Usage: payload-agent find-by-id <collection> <id> [--select '{...}'] [--depth N] [--locale <code>]",
+      "Usage: payload-cli find-by-id <collection> <id> [--select '{...}'] [--depth N] [--locale <code>]",
     )
     process.exit(1)
   }
@@ -147,7 +147,7 @@ export async function findByIdCommand(
     const errMsg = error instanceof Error ? error.message : String(error)
     if (errMsg.includes('not found') || errMsg.includes('Not Found')) {
       console.error(`Error: Document '${id}' not found in collection '${slug}'.`)
-      console.error(`Hint: Run 'payload-agent find ${slug} --limit 5' to see existing documents.`)
+      console.error(`Hint: Run 'payload-cli find ${slug} --limit 5' to see existing documents.`)
     } else {
       console.error(formatValidationError(error, slug))
     }

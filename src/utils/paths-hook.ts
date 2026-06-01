@@ -4,7 +4,7 @@
  * Registered via module.register() at runtime. Receives the tsconfig
  * paths mapping and baseUrl via the initialization data channel.
  *
- * This allows payload-agent to load user payload.config.ts files that
+ * This allows payload-cli to load user payload.config.ts files that
  * use TypeScript path aliases like `@/*`.
  */
 

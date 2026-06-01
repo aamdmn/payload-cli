@@ -3,7 +3,7 @@ import type { OutputOptions } from '../output/formatter.js'
 import { output, table } from '../output/formatter.js'
 
 /**
- * payload-agent collections - List all collections with field counts.
+ * payload-cli collections - List all collections with field counts.
  */
 export async function collectionsCommand(
   payload: Payload,

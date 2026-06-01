@@ -121,7 +121,7 @@ export function findPayloadConfig(explicitPath?: string): ConfigResult {
 /**
  * Load .env file from the config's directory if it exists.
  * This ensures DATABASE_URL, PAYLOAD_SECRET, etc. are available
- * when running payload-agent from outside the project directory.
+ * when running payload-cli from outside the project directory.
  *
  * Uses a simple parser -- no dependency on dotenv.
  * Only sets variables that are NOT already set in the environment.

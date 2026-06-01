@@ -4,7 +4,7 @@ import { output } from '../output/formatter.js'
 import { formatLocales, getLocaleConfig } from '../utils/locale.js'
 
 /**
- * payload-agent status - Show Payload instance status.
+ * payload-cli status - Show Payload instance status.
  */
 export async function statusCommand(
   payload: Payload,

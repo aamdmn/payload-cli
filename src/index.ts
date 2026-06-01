@@ -1,7 +1,7 @@
 /**
- * payload-agent - PayloadCMS CLI for AI agents and humans.
+ * payload-cli - PayloadCMS CLI for AI agents and humans.
  *
- * This is the programmatic API. For CLI usage, run: npx payload-agent --help
+ * This is the programmatic API. For CLI usage, run: npx payload-cli --help
  *
  * The CLI is the primary interface. This module exports utilities
  * that can be used programmatically if needed.

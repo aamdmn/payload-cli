@@ -20,9 +20,9 @@ import { getPayloadInstance, shutdownPayload } from './utils/payload-init.js'
 const require = createRequire(import.meta.url)
 const { version: VERSION } = require('../package.json') as { version: string }
 
-const HELP = `payload-agent - PayloadCMS CLI for AI agents and humans
+const HELP = `payload-cli - PayloadCMS CLI for AI agents and humans
 
-Usage: payload-agent <command> [arguments] [flags]
+Usage: payload-cli <command> [arguments] [flags]
 
 Introspection:
   collections                         List all collections
@@ -73,35 +73,35 @@ Global Flags:
   --version, -v           Show version
 
 Examples:
-  payload-agent collections
-  payload-agent describe posts
-  payload-agent describe posts --fields
-  payload-agent find posts --limit 5
-  payload-agent find posts --where '{"status":{"equals":"published"}}'
-  payload-agent find-by-id posts 6789abcdef
-  payload-agent find-by-id posts 6789abcdef --locale all
-  payload-agent create posts --data '{"title":"Hello World"}'
-  payload-agent update posts 6789abcdef --data '{"title":"Updated"}'
-  payload-agent update posts 6789abcdef --data '{"title":"Ahoj"}' --locale cz
-  payload-agent update-many posts --where '{}' --data '{"price":1149}' --locale cz
-  payload-agent delete posts 6789abcdef --confirm
-  payload-agent get-global site-settings
-  payload-agent get-global header --locale cz
-  payload-agent update-global header --data '{"title":"Updated"}' --locale cz
-  payload-agent copy-locale products --from en --to fr
-  payload-agent copy-locale-global header --from en --to fr
-  payload-agent upload media ./hero.jpg --data '{"alt":"Hero"}'
-  payload-agent upload media ./photos/
-  payload-agent download media 6789abcdef --out ./downloads/
-  payload-agent create pages --data '{"title":"About"}' --file 'heroImage=./hero.jpg'
-  payload-agent create pages --data @content.json
+  payload-cli collections
+  payload-cli describe posts
+  payload-cli describe posts --fields
+  payload-cli find posts --limit 5
+  payload-cli find posts --where '{"status":{"equals":"published"}}'
+  payload-cli find-by-id posts 6789abcdef
+  payload-cli find-by-id posts 6789abcdef --locale all
+  payload-cli create posts --data '{"title":"Hello World"}'
+  payload-cli update posts 6789abcdef --data '{"title":"Updated"}'
+  payload-cli update posts 6789abcdef --data '{"title":"Ahoj"}' --locale cz
+  payload-cli update-many posts --where '{}' --data '{"price":1149}' --locale cz
+  payload-cli delete posts 6789abcdef --confirm
+  payload-cli get-global site-settings
+  payload-cli get-global header --locale cz
+  payload-cli update-global header --data '{"title":"Updated"}' --locale cz
+  payload-cli copy-locale products --from en --to fr
+  payload-cli copy-locale-global header --from en --to fr
+  payload-cli upload media ./hero.jpg --data '{"alt":"Hero"}'
+  payload-cli upload media ./photos/
+  payload-cli download media 6789abcdef --out ./downloads/
+  payload-cli create pages --data '{"title":"About"}' --file 'heroImage=./hero.jpg'
+  payload-cli create pages --data @content.json
 
 Workflow for agents:
-  1. payload-agent collections          -> discover what's available
-  2. payload-agent describe posts       -> learn the schema
-  3. payload-agent find posts --limit 3 -> see existing data
-  4. payload-agent create posts --data  -> create content
-  5. payload-agent find-by-id posts <id> -> verify your changes
+  1. payload-cli collections          -> discover what's available
+  2. payload-cli describe posts       -> learn the schema
+  3. payload-cli find posts --limit 3 -> see existing data
+  4. payload-cli create posts --data  -> create content
+  5. payload-cli find-by-id posts <id> -> verify your changes
 `
 
 async function main(): Promise<void> {
@@ -299,7 +299,7 @@ async function main(): Promise<void> {
         if (suggestion) {
           console.error(`Did you mean '${suggestion}'?`)
         }
-        console.error("Run 'payload-agent --help' to see all commands.")
+        console.error("Run 'payload-cli --help' to see all commands.")
         process.exit(1)
       }
     }

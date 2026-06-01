@@ -5,7 +5,7 @@ The most common mistake agents make is trying to create or update data without f
 ## Step 1: List Collections
 
 ```bash
-payload-agent collections
+payload-cli collections
 ```
 
 This shows you all available collections, how many fields they have, and whether they support auth or file uploads.
@@ -13,7 +13,7 @@ This shows you all available collections, how many fields they have, and whether
 ## Step 2: Describe the Target Collection
 
 ```bash
-payload-agent describe posts
+payload-cli describe posts
 ```
 
 This is the critical step. The output shows:
@@ -47,7 +47,7 @@ From this you learn:
 If the schema contains `json` type fields (custom editors, table data, config objects), the `describe` output only shows `json` as the type -- it can't tell you the expected shape. Use `--examples` to sample a real document and see the structure:
 
 ```bash
-payload-agent describe products --examples
+payload-cli describe products --examples
 ```
 
 This adds an `Example:` line below each json field showing the actual data shape:
@@ -62,7 +62,7 @@ This is especially useful for fields that use custom UI components (size table e
 ## Step 3: Read Sample Data
 
 ```bash
-payload-agent find posts --limit 3
+payload-cli find posts --limit 3
 ```
 
 Looking at existing documents helps you understand the data format, especially for complex fields like rich text, arrays, and relationships.
@@ -72,18 +72,18 @@ Looking at existing documents helps you understand the data format, especially f
 Now you have enough context to write data correctly:
 
 ```bash
-payload-agent create posts --data '{"title":"My Post","slug":"my-post","status":"published"}'
+payload-cli create posts --data '{"title":"My Post","slug":"my-post","status":"published"}'
 ```
 
 ## Common Schema Pitfalls
 
 ### Required Fields
-If you get a validation error about missing fields, run `payload-agent describe` again and look for fields marked `(required)`.
+If you get a validation error about missing fields, run `payload-cli describe` again and look for fields marked `(required)`.
 
 ### Relationship Fields
 Relationship fields expect an ID (string), not an object. Find the related document's ID first:
 ```bash
-payload-agent find users --select '{"id":true,"email":true}' --limit 5
+payload-cli find users --select '{"id":true,"email":true}' --limit 5
 ```
 
 ### Select/Radio Fields
@@ -101,5 +101,5 @@ Array fields expect an array of objects with the sub-fields:
 ### Rich Text Fields
 Rich text fields use Lexical editor format. Check existing documents to see the format:
 ```bash
-payload-agent find-by-id posts <id> --json
+payload-cli find-by-id posts <id> --json
 ```
