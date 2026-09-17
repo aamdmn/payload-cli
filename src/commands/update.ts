@@ -96,6 +96,7 @@ async function processFileFlags(
 
     try {
       const result = await payload.create({
+        overrideAccess: true,
         collection: uploadSlug as Parameters<typeof payload.create>[0]['collection'],
         data: {},
         file,
@@ -200,6 +201,7 @@ export async function updateCommand(
 
   try {
     const result = await payload.update({
+      overrideAccess: true,
       collection: slug as Parameters<typeof payload.update>[0]['collection'],
       id,
       data: data as Record<string, unknown>,
@@ -273,6 +275,7 @@ export async function updateManyCommand(
   if (opts.dryRun) {
     // Preview: find matching docs first
     const preview = await payload.find({
+      overrideAccess: true,
       collection: slug as Parameters<typeof payload.find>[0]['collection'],
       where,
       limit: 10,
@@ -290,6 +293,7 @@ export async function updateManyCommand(
 
   try {
     const result = await payload.update({
+      overrideAccess: true,
       collection: slug as Parameters<typeof payload.update>[0]['collection'],
       where,
       data: data as Record<string, unknown>,

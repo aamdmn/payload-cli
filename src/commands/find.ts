@@ -34,6 +34,7 @@ export async function findCommand(
 
   // Parse optional parameters
   const findArgs: Record<string, unknown> = {
+    overrideAccess: true,
     collection: slug,
     ...buildLocaleArgs(payload, flags),
   }
@@ -122,6 +123,7 @@ export async function findByIdCommand(
   const flags = parseFlags(args)
 
   const findArgs: Record<string, unknown> = {
+    overrideAccess: true,
     collection: slug,
     id,
     ...buildLocaleArgs(payload, flags),

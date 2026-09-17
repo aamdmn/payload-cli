@@ -160,6 +160,7 @@ export async function copyLocaleCommand(
 
   while (true) {
     const result = await payload.find({
+      overrideAccess: true,
       collection: slug as Parameters<typeof payload.find>[0]['collection'],
       locale: fromLocale,
       depth: 0,
@@ -218,6 +219,7 @@ export async function copyLocaleCommand(
 
     try {
       await payload.update({
+        overrideAccess: true,
         collection: slug as Parameters<typeof payload.update>[0]['collection'],
         id: doc.id as string,
         locale: toLocale,
@@ -309,6 +311,7 @@ export async function copyLocaleGlobalCommand(
 
   // Read the global with source locale
   const doc = await payload.findGlobal({
+    overrideAccess: true,
     slug: slug as Parameters<typeof payload.findGlobal>[0]['slug'],
     locale: fromLocale,
     depth: 0,
@@ -338,6 +341,7 @@ export async function copyLocaleGlobalCommand(
 
   try {
     await payload.updateGlobal({
+      overrideAccess: true,
       slug: slug as Parameters<typeof payload.updateGlobal>[0]['slug'],
       locale: toLocale,
       data: data as Record<string, unknown>,

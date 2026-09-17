@@ -80,6 +80,7 @@ export async function downloadCommand(
     // Single document by ID
     try {
       const doc = (await payload.findByID({
+        overrideAccess: true,
         collection: slug as Parameters<typeof payload.findByID>[0]['collection'],
         id,
       })) as MediaDoc
@@ -103,6 +104,7 @@ export async function downloadCommand(
 
     try {
       const result = await payload.find({
+        overrideAccess: true,
         collection: slug as Parameters<typeof payload.find>[0]['collection'],
         where,
         limit: flags.limit ? Number.parseInt(flags.limit, 10) : 100,
