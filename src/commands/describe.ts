@@ -306,6 +306,7 @@ async function sampleJsonFields(
   try {
     // Query one document that has data, sorted by most recent
     const result = await payload.find({
+      overrideAccess: true,
       collection: collectionSlug as any,
       limit: 1,
       sort: '-updatedAt',
@@ -351,6 +352,7 @@ async function sampleGlobalJsonFields(
 
   try {
     const doc = (await payload.findGlobal({
+      overrideAccess: true,
       slug: globalSlug as any,
       depth: 0,
     })) as Record<string, unknown>

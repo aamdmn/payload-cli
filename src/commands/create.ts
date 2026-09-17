@@ -96,6 +96,7 @@ async function processFileFlags(
 
     try {
       const result = await payload.create({
+        overrideAccess: true,
         collection: uploadSlug as Parameters<typeof payload.create>[0]['collection'],
         data: {},
         file,
@@ -192,6 +193,7 @@ export async function createCommand(
 
   try {
     const result = await payload.create({
+      overrideAccess: true,
       collection: slug as Parameters<typeof payload.create>[0]['collection'],
       data: data as Record<string, unknown>,
       ...(locale ? { locale } : {}),

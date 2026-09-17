@@ -135,6 +135,7 @@ export async function uploadCommand(
 
     try {
       const result = await payload.create({
+        overrideAccess: true,
         collection: slug as Parameters<typeof payload.create>[0]['collection'],
         data: data as Record<string, unknown>,
         file,

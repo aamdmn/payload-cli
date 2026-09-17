@@ -69,6 +69,7 @@ export async function getGlobalCommand(
 
   const flags = parseFlags(args)
   const findArgs: Record<string, unknown> = {
+    overrideAccess: true,
     slug,
     ...buildLocaleArgs(payload, flags),
   }
@@ -137,6 +138,7 @@ export async function updateGlobalCommand(
 
   try {
     const result = await payload.updateGlobal({
+      overrideAccess: true,
       slug: slug as Parameters<typeof payload.updateGlobal>[0]['slug'],
       data: data as Record<string, unknown>,
       ...(locale ? { locale } : {}),

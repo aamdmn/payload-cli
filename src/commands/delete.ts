@@ -39,6 +39,7 @@ export async function deleteCommand(
   // Always preview first
   try {
     const doc = await payload.findByID({
+      overrideAccess: true,
       collection: slug as Parameters<typeof payload.findByID>[0]['collection'],
       id,
       ...localeArgs,
@@ -54,6 +55,7 @@ export async function deleteCommand(
 
     // Execute delete
     await payload.delete({
+      overrideAccess: true,
       collection: slug as Parameters<typeof payload.delete>[0]['collection'],
       id,
       context: { disableRevalidate: true },
@@ -117,6 +119,7 @@ export async function deleteManyCommand(
 
   // Preview: find matching docs
   const preview = await payload.find({
+    overrideAccess: true,
     collection: slug as Parameters<typeof payload.find>[0]['collection'],
     where,
     limit: 10,
@@ -142,6 +145,7 @@ export async function deleteManyCommand(
   // Execute bulk delete
   try {
     const result = await payload.delete({
+      overrideAccess: true,
       collection: slug as Parameters<typeof payload.delete>[0]['collection'],
       where,
       context: { disableRevalidate: true },
