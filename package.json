@@ -37,7 +37,7 @@
     "tsx": "^4.23.13"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.4.6",
+    "@biomejs/biome": "2.5.14",
     "@swc/cli": "0.8.1",
     "@swc/core": "1.16.2",
     "@types/node": "24.13.5",
