@@ -48,9 +48,9 @@
   "peerDependencies": {
     "payload": "^3.0.0"
   },
-  "packageManager": "pnpm@10.30.3",
+  "packageManager": "pnpm@10.33.0",
   "engines": {
-    "node": "^18.20.2 || >=20.9.0"
+    "node": ">=22.12.0"
   },
   "publishConfig": {
     "bin": {

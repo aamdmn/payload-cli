@@ -113,7 +113,7 @@ The `skills/` directory contains a [Claude Code skill](https://claude.ai/docs/sk
 
 ## Requirements
 
-- Node.js ^18.20.2 or >=20.9.0
+- Node.js >=22.12.0
 - Payload CMS ^3.0.0
 
 ## License
